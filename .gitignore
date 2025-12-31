@@ -64,3 +64,10 @@ build/
 # Temporary files
 tmp/
 temp/
+
+# Java compiled files
+*.class
+*.jar
+*.war
+*.ear
+*.nar
