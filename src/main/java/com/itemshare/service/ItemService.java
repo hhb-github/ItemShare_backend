@@ -31,7 +31,7 @@ public class ItemService {
         Optional<Item> item = itemRepository.findById(id);
         // 加载与Item关联的Image数据
         if (item.isPresent()) {
-            item.get().setImages(imageService.findByItemId(item.get().getId()));
+            item.get().setImages(imageService.findByItemIdOrderBySortOrderAsc(item.get().getId()));
         }
         return item;
     }
