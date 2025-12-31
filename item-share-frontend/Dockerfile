@@ -31,15 +31,6 @@ COPY --from=builder /app/build /usr/share/nginx/html
 # 创建简单的nginx配置
 COPY nginx.zeabur.conf /etc/nginx/conf.d/default.conf
 
-# 创建非root用户
-RUN addgroup -g 1001 -S nodejs && \
-    adduser -S frontend -u 1001 -G nodejs
-
-# 设置权限
-RUN chown -R frontend:nodejs /usr/share/nginx/html && \
-    chown -R frontend:nodejs /var/cache/nginx && \
-    chown -R frontend:nodejs /var/log/nginx
-
 # 创建启动脚本
 RUN echo '#!/bin/sh\n\
 # 动态生成nginx配置，支持环境变量 BACKEND_URL\n\
@@ -52,9 +43,6 @@ fi\n\
 exec nginx -g "daemon off;"\n\
 ' > /entrypoint.sh && \
     chmod +x /entrypoint.sh
-
-# 切换到非root用户
-USER frontend
 
 # 暴露端口
 EXPOSE 8080
