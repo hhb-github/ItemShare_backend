@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+    
+    <!-- 使用阿里云镜像加速下载 -->
+    <mirrors>
+        <mirror>
+            <id>alimaven</id>
+            <name>aliyun maven</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <mirrorOf>central</mirrorOf>        
+        </mirror>
+        <mirror>
+            <id>alimaven</id>
+            <name>aliyun maven</name>
+            <url>https://maven.aliyun.com/repository/central</url>
+            <mirrorOf>central</mirrorOf>        
+        </mirror>
+        <mirror>
+            <id>alimaven</id>
+            <name>aliyun maven</name>
+            <url>https://maven.aliyun.com/repository/gradle</url>
+            <mirrorOf>gradle</mirrorOf>        
+        </mirror>
+    </mirrors>
+    
+    <profiles>
+        <profile>
+            <id>jdk-17</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+                <jdk>17</jdk>
+            </activation>
+            <properties>
+                <maven.compiler.source>17</maven.compiler.source>
+                <maven.compiler.target>17</maven.compiler.target>
+                <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+                <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+                <java.version>17</java.version>
+            </properties>
+        </profile>
+    </profiles>
+    
+</settings>
