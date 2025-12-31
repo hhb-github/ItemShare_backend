@@ -38,9 +38,7 @@ RUN addgroup -g 1001 -S nodejs && \
 # 设置权限
 RUN chown -R frontend:nodejs /usr/share/nginx/html && \
     chown -R frontend:nodejs /var/cache/nginx && \
-    chown -R frontend:nodejs /var/log/nginx && \
-    chown -R frontend:nodejs /etc/nginx/conf.d && \
-    chown -R frontend:nodejs /run/nginx
+    chown -R frontend:nodejs /var/log/nginx
 
 # 创建启动脚本
 RUN echo '#!/bin/sh\n\
